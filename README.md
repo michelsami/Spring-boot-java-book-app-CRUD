@@ -95,10 +95,4 @@ This project serves as a foundation for understanding:
 
 ---
 
-## 📬 License
-
-This project is open-source and free to use for learning and non-commercial use.
-
-```
-
 
