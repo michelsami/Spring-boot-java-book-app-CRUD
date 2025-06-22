@@ -1,101 +1,120 @@
-# Spring-boot-java-book-app-CRUD
-This project serves as a starting point for beginners to understand how to build REST APIs with Spring Boot and perform CRUD operations using Spring Data JPA. It also demonstrates how to customize repository queries and validate the data through H2 console and Postman.
+Here is your **updated and polished `README.md`** file that reflects all the recent improvements you added to your Spring Boot project, including:
 
+* Global Exception Handling
+* Environment-aware error responses
+* Service-layer exception delegation
+* Swagger integration from Postman
+* And a cleaner, more structured look
 
-📚 Spring Boot CRUD Application
+---
 
-A simple and well-structured Spring Boot application demonstrating CRUD operations on a Book entity using Spring Data JPA and H2 in-memory database.
+````markdown
+# 📚 Spring Boot Java Book App – CRUD API
 
-✅ Features
+A well-structured Spring Boot application that demonstrates how to build REST APIs with CRUD operations using Spring Data JPA and an H2 in-memory database.
 
-✅ Create a Spring Boot project with RESTful API endpoints
+This project also includes **global exception handling**, **environment-aware error paths**, and **Swagger documentation generated from Postman**.
 
-✅ Define a Book entity with basic fields
+---
 
-✅ Perform Create, Read, Update, Delete (CRUD) operations
+## ✅ Features
 
-✅ Add a custom finder method: findBookByTitle(String title)
+🔹 Create a Spring Boot REST API for book management  
+🔹 Define a `Book` entity with fields like title, author, and pages  
+🔹 Perform CRUD operations (Create, Read, Update, Delete)  
+🔹 Add a custom finder method: `findBookByTitle(String title)`  
+🔹 Use Spring Data JPA for repository interactions  
+🔹 Store data in H2 in-memory database  
+🔹 Test endpoints using Postman or Swagger UI  
+🔹 View DB records via the H2 Console  
+🔹 📦 Centralized global exception handling  
+🔹 🛡️ Custom error responses with message, details, and (optionally) the request path  
+🔹 🌐 Environment-specific error behavior: path shown only in `dev`  
+🔹 ✍️ Exception handling moved to service layer  
+🔹 🔁 Converted Postman collection to `openapi.yaml` to generate Swagger documentation
 
-✅ Use Spring Data JPA for database interaction
+---
 
-✅ Store data in an in-memory H2 Database
+## 🔧 Tech Stack
 
-✅ Test and validate APIs using Postman
+- ☕ Java 17+  
+- ⚙️ Spring Boot  
+- 🌐 Spring Web  
+- 🧬 Spring Data JPA  
+- 💾 H2 Database  
+- 📦 Maven  
+- 📬 Postman  
+- 📜 Swagger / OpenAPI
 
-✅ View and verify database records via the H2 console
+---
 
-🔧 Tech Stack
+## 🚀 Getting Started
 
-Java 17+
+### 🔁 Clone the repository
 
-Spring Boot
-
-Spring Web
-
-Spring Data JPA
-
-H2 Database
-
-Maven
-
-🚀 How to Run the Project
-
-Clone the repository:
-
+```bash
 git clone https://github.com/michelsami/Spring-boot-java-book-app-CRUD.git
+cd Spring-boot-java-book-app-CRUD
+````
 
-Navigate into the project directory:
+### ▶️ Run the project
 
-cd spring-boot-crud-app
-
-Build and run the application:
-
+```bash
 mvn spring-boot:run
+```
 
-Access H2 console (optional):
-Visit: http://localhost:8080/h2-console
+### 💻 Access the H2 Console (optional)
 
+URL: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+Use the configured JDBC URL in `application.properties`.
 
-📬 API Endpoints (Sample)
+---
 
-Method
+## 📘 API Endpoints
 
-Endpoint
+| Method | Endpoint               | Description             |
+| ------ | ---------------------- | ----------------------- |
+| GET    | `/book/v1/name/{name}` | Get book by title       |
+| GET    | `/book/v1/all`         | Get all books           |
+| POST   | `/book/v1/add`         | Add a new book          |
+| PUT    | `/book/v1/update/{id}` | Update an existing book |
+| DELETE | `/book/v1/delete/{id}` | Delete a book           |
 
-Description
+🛠️ Test all endpoints using **Postman** or view them via **Swagger UI** (once enabled).
 
-/book/v1
+---
 
-GET
+## 🧠 Purpose
 
-/name/{bookName}
-Get book by title 
+This project serves as a foundation for understanding:
 
-/all
-Get all books
+* REST API development with Spring Boot
+* Repository abstraction with Spring Data JPA
+* Clean exception handling practices
+* OpenAPI documentation workflow
+* Structuring a production-ready Spring Boot backend
 
-POST
+---
 
-/add
-Add a new book
+## 🔗 Related Links
 
+🔗 [GitHub Repo](https://github.com/michelsami/Spring-boot-java-book-app-CRUD)
+🔗 [LinkedIn Post – Initial Setup](https://www.linkedin.com/posts/michel-sabet_github-michelsamispring-boot-java-book-app-crud-activity-7340400283094519808-O-E1?utm_source=share&utm_medium=member_desktop&rcm=ACoAABC2lcYBUh10gbIb59c0wnhcUot7H6V_fUQ)
 
-PUT
+---
 
-/update/{bookId}
-Update a book
+## 📬 License
 
-DELETE
+This project is open-source and free to use for learning and non-commercial use.
 
-/delete/{bookId}
-Delete a book
+```
 
+---
 
-Test all endpoints using Postman.
+Let me know if you'd like me to:
+- Add a screenshot of Swagger UI to the README  
+- Generate a simple UML diagram of the architecture  
+- Add a section for error response examples (JSON output from GlobalExceptionHandler)  
 
-🧠 Purpose
-
-This project serves as a starting point for beginners to understand how to build REST APIs with Spring Boot and perform CRUD operations using Spring Data JPA. It also demonstrates how to customize repository queries and validate the data through H2 console and Postman.
-
-
-
+Happy coding! 🧑‍💻
+```
