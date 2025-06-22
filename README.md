@@ -1,12 +1,4 @@
-Here is your **updated and polished `README.md`** file that reflects all the recent improvements you added to your Spring Boot project, including:
 
-* Global Exception Handling
-* Environment-aware error responses
-* Service-layer exception delegation
-* Swagger integration from Postman
-* And a cleaner, more structured look
-
----
 
 ````markdown
 # 📚 Spring Boot Java Book App – CRUD API
@@ -109,12 +101,4 @@ This project is open-source and free to use for learning and non-commercial use.
 
 ```
 
----
 
-Let me know if you'd like me to:
-- Add a screenshot of Swagger UI to the README  
-- Generate a simple UML diagram of the architecture  
-- Add a section for error response examples (JSON output from GlobalExceptionHandler)  
-
-Happy coding! 🧑‍💻
-```
