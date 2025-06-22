@@ -1,6 +1,8 @@
 package com.codingJava.LibraryApp.controller;
 
 import com.codingJava.LibraryApp.entity.Book;
+
+import com.codingJava.LibraryApp.exception.ResourceNotFoundException;
 import com.codingJava.LibraryApp.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +20,26 @@ public class BookController {
     @GetMapping("/name/{bookName}")
     public ResponseEntity<Book> getBookByName(@PathVariable("bookName") String bookName){
         Book bookFound = bookService.getBookByName(bookName);
+
+        return ResponseEntity.ok(bookFound);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable("id") Integer Id){
+        Book bookFound = bookService.getBookById(Id);
+
         return ResponseEntity.ok(bookFound);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks(){
         List<Book> books = bookService.getAllBooks();
+        if (books == null || books.isEmpty()) {
+            throw new ResourceNotFoundException(
+                    "No books found in the library.",
+                    "The library database currently has no book records to display."
+            );
+        }
         return ResponseEntity.ok(books);
     }
 
