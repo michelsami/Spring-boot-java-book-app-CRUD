@@ -1,0 +1,154 @@
+components:
+  schemas:
+    Book:
+      properties:
+        author:
+          example: F. Scott Fitzgerald
+          type: string
+        genre:
+          example: Drama
+          type: string
+        id:
+          example: 1
+          type: integer
+        title:
+          example: The Great Gatsby
+          type: string
+      type: object
+    BookRequest:
+      properties:
+        author:
+          example: Sample Author
+          type: string
+        genre:
+          example: Sample Genre
+          type: string
+        title:
+          example: Sample Book Title
+          type: string
+      required:
+      - title
+      - author
+      - genre
+      type: object
+info:
+  description: A professional and fully documented OpenAPI spec for managing books
+    using CRUD operations.
+  title: Book App API
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /book/v1/add:
+    post:
+      description: Add a new book to the system.
+      requestBody:
+        content:
+          application/json:
+            example:
+              author: Harper Lee
+              genre: Classic
+              title: To Kill a Mockingbird
+            schema:
+              $ref: '#/components/schemas/BookRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+          description: Book created successfully
+      summary: Create a new book
+      tags:
+      - Books
+  /book/v1/all:
+    get:
+      description: Fetch a list of all available books.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Book'
+                type: array
+          description: A list of books
+      summary: Retrieve all books
+      tags:
+      - Books
+  /book/v1/update/{id}:
+    put:
+      description: Update the information of an existing book using its ID.
+      parameters:
+      - description: The ID of the book to update
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 24
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            example:
+              author: Updated Author
+              genre: Updated Genre
+              title: Updated Book Title
+            schema:
+              $ref: '#/components/schemas/BookRequest'
+        required: true
+      responses:
+        '200':
+          description: Book updated successfully
+        '404':
+          description: Book not found
+      summary: Update a book
+      tags:
+      - Books
+  /info:
+    delete:
+      description: Remove a book from the system using its ID.
+      parameters:
+      - description: The ID of the book to delete
+        in: query
+        name: id
+        required: true
+        schema:
+          example: 1
+          type: integer
+      responses:
+        '204':
+          description: Book deleted successfully
+        '404':
+          description: Book not found
+      summary: Delete a book by ID
+      tags:
+      - Books
+    get:
+      description: Fetch a book's details using its ID.
+      parameters:
+      - description: The ID of the book
+        in: query
+        name: id
+        required: true
+        schema:
+          example: 1
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+          description: Book details
+        '404':
+          description: Book not found
+      summary: Retrieve a book by ID
+      tags:
+      - Books
+servers:
+- description: Demo Server
+  url: https://postman-rest-api-learner.glitch.me
+tags:
+- description: Operations related to books
+  name: Books
